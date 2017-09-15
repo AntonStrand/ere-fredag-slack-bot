@@ -14,7 +14,7 @@ app.listen(port, function () {
   console.log('Listening on port ' + port)
 })
 
-app.post('/hello', function (req, res, next) {
+app.post('/fredag', function (req, res, next) {
   var answer = (new Date().getDay() === 5) ? 'Yes!' : 'Nej.'
   var userName = req.body.user_name
   var botPayload = {
