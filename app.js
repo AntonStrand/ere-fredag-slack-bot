@@ -1,0 +1,29 @@
+const express = require('express')
+const bodyParser = require('body-parser')
+
+const app = express();
+const port = process.env.PORT || 1337
+
+// body parser middleware
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// test route
+app.get('/', function (req, res) { res.status(200).send(`You're connected!`)})
+
+app.listen(port, function () {
+  console.log('Listening on port ' + port)
+})
+
+
+app.post('/fredag', function (req, res, next) {
+  const answer = (new Date().getDay === 5) ? 'Yes!' : 'Nej.'
+  const botPayload = {
+    text: `Är det fredag? \n ${answer}`
+  }
+
+  if (req.body.user_name !== 'slackbot') {
+    return res.status(200).json(botPayload)
+  } else {
+    return res.status(200).end()
+  }
+})
