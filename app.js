@@ -21,9 +21,9 @@ app.post('/fredag', function (req, res, next) {
   const userName = req.body.user_name
 
   const botPayload = {
+    text: 'Är det fredag?',
     attachment: {
-      title: 'Är det fredag?',
-      value: answer,
+      text: answer,
       color: rColor
     }
   }
