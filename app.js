@@ -14,12 +14,15 @@ app.listen(port, function () {
   console.log('Listening on port ' + port)
 })
 
-
-app.post('/fredag', function (req, res, next) {
-  //const answer = (new Date().getDay === 5) ? 'Yes!' : 'Nej.'
-  return {
-    //text: `Är det fredag? \n ${answer}`
-    response_type: "in_channel",
-    text: 'Hello world'
+app.post('/hello', function (req, res, next) {
+  var userName = req.body.user_name
+  var botPayload = {
+    text : 'Hello ' + userName + ', welcome to Devdactic Slack channel! I\'ll be your guide.'
+  };
+  // Loop otherwise..
+  if (userName !== 'slackbot') {
+    return res.status(200).json(botPayload)
+  } else {
+    return res.status(200).end()
   }
 })
