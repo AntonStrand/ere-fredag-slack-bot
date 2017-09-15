@@ -15,17 +15,11 @@ app.listen(port, function () {
 })
 
 
-app.post('fredag', function (req, res, next) {
+app.post('/fredag', function (req, res, next) {
   //const answer = (new Date().getDay === 5) ? 'Yes!' : 'Nej.'
-  const botPayload = {
+  return {
     //text: `Är det fredag? \n ${answer}`
     response_type: "in_channel",
     text: 'Hello world'
-  }
-
-  if (req.body.user_name !== 'slackbot') {
-    return res.status(200).json(botPayload)
-  } else {
-    return res.status(200).end()
   }
 })
