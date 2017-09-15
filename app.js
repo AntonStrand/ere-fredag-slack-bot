@@ -15,11 +15,18 @@ app.listen(port, function () {
 })
 
 app.post('/fredag', function (req, res, next) {
-  var answer = (new Date().getDay() === 5) ? 'Yes!' : 'Nej.'
-  var userName = req.body.user_name
-  var botPayload = {
-    text : 'Är det fredag? \n' + answer
-  };
+  const date = new Date().getDay()
+  const answer = (date === 5) ? 'Yes!' : 'Nej.'
+  const rColor = (date === 5) ? '#7B9C7F' : '#8B1714'
+  const userName = req.body.user_name
+
+  const botPayload = {
+    attachment: {
+      title: 'Är det fredag?',
+      value: answer,
+      color: rColor
+    }
+  }
   // Loop otherwise..
   if (userName !== 'slackbot') {
     return res.status(200).json(botPayload)
