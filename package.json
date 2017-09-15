@@ -1,0 +1,13 @@
+{
+  "name": "ere-fredag-slack-bot",
+  "version": "0.0.1",
+  "description": "Osäker på om det är fredag? Fråga!",
+  "main": "app.js",
+  "author": "Anton Strand",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.x.x",
+    "body-parser": "^1.x.x",
+    "request": "^2.81.0"
+  }
+}
