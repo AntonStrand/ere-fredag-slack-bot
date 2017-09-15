@@ -15,9 +15,10 @@ app.listen(port, function () {
 })
 
 app.post('/hello', function (req, res, next) {
+  var answer = (new Date().getDay() === 5) ? 'Yes!' : 'Nej.'
   var userName = req.body.user_name
   var botPayload = {
-    text : 'Hello ' + userName + ', welcome to Devdactic Slack channel! I\'ll be your guide.'
+    text : 'Är det fredag? \n' + answer
   };
   // Loop otherwise..
   if (userName !== 'slackbot') {
