@@ -17,13 +17,14 @@ app.listen(port, function () {
 app.post('/fredag', function (req, res, next) {
   const date = new Date().getDay()
   const answer = (date === 5) ? 'Yes!' : 'Nej.'
-  const rColor = (date === 5) ? '#7B9C7F' : '#8B1714'
+  const rColor = (date === 5) ? '#36a64f' : '#8B1714'
   const userName = req.body.user_name
 
   const botPayload = {
-    attachment: {
+    attachments: {
       fallback: 'Visar om det är fredag.',
-      text: 'Är det fredag?\n' + answer,
+      title: 'Är det fredag?',
+      text: answer,
       color: rColor
     }
   }
