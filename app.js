@@ -21,13 +21,13 @@ app.post('/fredag', function (req, res, next) {
   const userName = req.body.user_name
 
   const botPayload = {
-    attachments: {
+    attachments: [{
       fallback: 'Visar om det är fredag.',
       title: 'Är det fredag?',
       title_link: 'http://erefredag.se/',
       text: answer,
       color: rColor
-    }
+    }]
   }
   // Loop otherwise..
   if (userName !== 'slackbot') {
