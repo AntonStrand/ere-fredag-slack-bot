@@ -5,6 +5,9 @@
   "main": "app.js",
   "author": "Anton Strand",
   "license": "MIT",
+  "scripts": {
+    "start": "node app"
+  },
   "dependencies": {
     "express": "^4.x.x",
     "body-parser": "^1.x.x",
