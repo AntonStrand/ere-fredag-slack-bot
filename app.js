@@ -39,13 +39,14 @@ app.post('/fredag', function (req, res, next) {
 
 app.post('/idag', function (req, res, next) {
   const date = new Date().getDay()
+  const day = getDayByNumber(date)
   const userName = req.body.user_name
 
   const botPayload = {
     attachments: [{
       fallback: 'Visar vad det är för dag.',
       title: 'Vad är det för dag?',
-      text: getDayByNumber(date) + '.'
+      text: day + '.'
     }]
   }
   // Loop otherwise..
@@ -59,9 +60,9 @@ app.post('/idag', function (req, res, next) {
 function getDayByNumber(dayNumber) {
   let day
   switch (dayNumber) {
-  case 0:
-    day = 'Söndag'
-    break
+    case 0:
+      day = 'Söndag'
+      break
 
     case 1:
       day = 'Måndag'
