@@ -36,3 +36,60 @@ app.post('/fredag', function (req, res, next) {
     return res.status(200).end()
   }
 })
+
+app.post('/idag', function (req, res, next) {
+  const date = new Date().getDay()
+  const userName = req.body.user_name
+
+  const botPayload = {
+    attachments: [{
+      fallback: 'Visar vad det är för dag.',
+      title: 'Vad är det för dag?',
+      text: getDayByNumber(date) + '.'
+    }]
+  }
+  // Loop otherwise..
+  if (userName !== 'slackbot') {
+    return res.status(200).json(botPayload)
+  } else {
+    return res.status(200).end()
+  }
+})
+
+function getDayByNumber(dayNumber) {
+  let day
+  switch (dayNumber) {
+  case 0:
+    day = 'Söndag'
+    break
+
+    case 1:
+      day = 'Måndag'
+      break
+
+    case 2:
+      day = 'Tisdag'
+      break
+
+    case 3:
+      day = 'Onsdag'
+      break
+
+    case 4:
+      break
+      day = 'Torsdag'
+
+    case 5:
+      break
+      day = 'Fredag'
+
+    case 6:
+      break
+      day = 'Lördag'
+  
+    default:
+      day = 'Kunde inte hitta dag'
+      break;
+  }
+  return day
+}
