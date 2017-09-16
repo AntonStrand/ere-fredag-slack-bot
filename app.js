@@ -77,16 +77,16 @@ function getDayByNumber(dayNumber) {
       break
 
     case 4:
-      break
       day = 'Torsdag'
+      break
 
     case 5:
-      break
       day = 'Fredag'
+      break
 
     case 6:
-      break
       day = 'Lördag'
+      break
   
     default:
       day = 'Kunde inte hitta dag'
